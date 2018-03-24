@@ -16,7 +16,11 @@
 .App-nav {
   display: flex;
   justify-content: flex-start;
-  margin: 20px;
+}
+
+.App-nav a {
+  display: block;
+  padding: 20px;
 }
 
 .App-title {
@@ -27,6 +31,7 @@
   font-size: large;
   max-width: 600px;
   margin: 20px auto;
+  text-align: left;
 }
 
 .App-footer {
