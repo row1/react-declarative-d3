@@ -4,6 +4,8 @@ import { tsvParse } from 'd3-dsv';
 import { max } from 'd3-array';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { select } from 'd3-selection';
+
+// Same as data.tsv
 import dataTsv from './data';
 
 import './chart.css';
