@@ -1,6 +1,6 @@
 # React Declarative D3
 
-Examples of using D3 in React with declarative syntax rather than JavaScript DOM operations. See the [blog post](https://medium.com/technical-credit/declarative-d3-in-react-6e736e526182) for more details on why a declarative approach is taken.
+Examples of using D3 in React with declarative syntax rather than JavaScript DOM operations. See the [blog post](https://medium.com/technical-credit/declarative-d3-examples-in-react-6e736e526182) for more details on why a declarative approach is taken.
 
 # Install and Run
 

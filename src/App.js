@@ -20,7 +20,7 @@ class App extends Component {
           </header>
           <nav className="App-nav">
             <Link to="/">Home</Link>{' '}
-            <a href="https://medium.com/technical-credit/declarative-d3-in-react-6e736e526182">
+            <a href="https://medium.com/technical-credit/declarative-d3-examples-in-react-6e736e526182">
               Blog Post
             </a>
           </nav>

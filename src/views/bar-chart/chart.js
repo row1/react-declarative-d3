@@ -39,10 +39,13 @@ export default () => (
         transform={`translate(0, ${height})`}
         ref={node => select(node).call(axisBottom(x))}
       />
-      <g
-        className="axis axis--y"
-        ref={node => select(node).call(axisLeft(y).ticks(10, '%'))}
-      >
+      <g className="axis axis--y">
+        <g ref={node => select(node).call(axisLeft(y).ticks(10, '%'))} />
+        {/* Note: In the actual example 'Frequency' is a child of the above 'g' and it doesn't render. 
+          * Changing it to a sibiling allows it to render and having the axis as an empty 'g' means that it will also play nicer with react:
+          * "The easiest way to avoid conflicts is to prevent the React component from updating. You can do this by rendering elements that React has no reason to update, like an empty <div />."
+          * https://reactjs.org/docs/integrating-with-other-libraries.html 
+          */}
         <text transform="rotate(-90)" y="6" dy="0.71em" textAnchor="end">
           Frequency
         </text>

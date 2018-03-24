@@ -12,7 +12,7 @@ export default () => (
     </p>
     <p>
       See the{' '}
-      <a href="https://medium.com/technical-credit/declarative-d3-in-react-6e736e526182">
+      <a href="https://medium.com/technical-credit/declarative-d3-examples-in-react-6e736e526182">
         blog post
       </a>{' '}
       for an explanation of the background to this approach. If you are reading
