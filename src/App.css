@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-nav {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.App-footer {
+  font-size: small;
+  margin: 20px;
+}

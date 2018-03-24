@@ -1,0 +1,30 @@
+{
+  "name": "react-declarative-d3",
+  "version": "0.1.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/row1/react-declarative-d3.git"
+  },
+  "dependencies": {
+    "d3-scale": "^2.0.0",
+    "d3-shape": "^1.2.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "precommit": "pretty-quick --staged"
+  },
+  "devDependencies": {
+    "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^0.14.3",
+    "prettier": "1.11.1",
+    "pretty-quick": "^1.4.1"
+  }
+}
