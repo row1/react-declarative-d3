@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './views/home';
 import BarChart from './views/bar-chart';
 import DonutChart from './views/donut-chart';
+import MultiSeriesLineChart from './views/multi-series-line-chart';
 
 import reactLogo from './react-logo.svg';
 import d3Logo from './d3-logo.svg';
@@ -27,6 +28,11 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/bar-chart" component={BarChart} />
           <Route exact path="/donut-chart" component={DonutChart} />
+          <Route
+            exact
+            path="/multi-series-line-chart"
+            component={MultiSeriesLineChart}
+          />
           <footer className="App-footer">
             &copy; 2018 <a href="https://github.com/row1">Rowan Youngson</a>.
             Code samples available under MIT License.

@@ -27,6 +27,9 @@ export default () => (
       <li>
         <Link to="/donut-chart">Donut Chart</Link>
       </li>
+      <li>
+        <Link to="/multi-series-line-chart">Multi-Series Line Chart</Link>
+      </li>
     </ul>
   </div>
 );
