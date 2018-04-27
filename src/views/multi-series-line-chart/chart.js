@@ -41,18 +41,14 @@ const data = tsvParse(dataTsv, (d, _, columns) => {
 
 const cities = data.columns.slice(1).map(id => {
   return {
-    id: id,
+    id,
     values: data.map(d => {
       return { date: d.date, temperature: d[id] };
     }),
   };
 });
 
-x.domain(
-  extent(data, d => {
-    return d.date;
-  })
-);
+x.domain(extent(data, d => d.date));
 
 y.domain([
   min(cities, c => min(c.values, d => d.temperature)),
