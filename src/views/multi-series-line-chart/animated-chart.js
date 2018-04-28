@@ -9,7 +9,7 @@ import { axisBottom, axisLeft } from 'd3-axis';
 import { select } from 'd3-selection';
 import { easeLinear } from 'd3-ease';
 
-import makeAnimated from 'components/makeAnimated';
+import makeAnimated from 'components/make-animated';
 
 // Same as data.tsv
 import dataTsv from './data';
