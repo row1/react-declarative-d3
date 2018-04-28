@@ -37,6 +37,11 @@ export default () => (
       <li>
         <Link to="/bar-chart/animated">Bar Chart</Link>
       </li>
+      <li>
+        <Link to="/multi-series-line-chart/animated">
+          Multi-Series Line Chart
+        </Link>
+      </li>
     </ul>
   </div>
 );

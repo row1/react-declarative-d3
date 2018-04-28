@@ -33,13 +33,6 @@ const originalData = tsvParse(dataTsv, d => {
 x.domain(originalData.map(d => d.letter));
 y.domain([0, max(originalData, d => d.frequency)]);
 
-const easeData = (data, t) => {
-  return data.map(x => ({
-    letter: x.letter,
-    frequency: x.frequency * easeCubicInOut(t),
-  }));
-};
-
 const Bar = ({ data }) => (
   <svg width={svgWidth} height={svgHeight}>
     <g transform={`translate(${margin.left}, ${margin.top})`}>
@@ -67,6 +60,13 @@ const Bar = ({ data }) => (
     </g>
   </svg>
 );
+
+const easeData = (data, t) => {
+  return data.map(x => ({
+    letter: x.letter,
+    frequency: x.frequency * easeCubicInOut(t),
+  }));
+};
 
 export default makeAnimated(Bar, {
   easeData,

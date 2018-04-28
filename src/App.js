@@ -5,6 +5,7 @@ import BarChart from './views/bar-chart';
 import AnimatedBarChart from './views/bar-chart/animated-chart';
 import DonutChart from './views/donut-chart';
 import MultiSeriesLineChart from './views/multi-series-line-chart';
+import AnimatedMultiSeriesLineChart from './views/multi-series-line-chart/animated-chart';
 
 import reactLogo from './react-logo.svg';
 import d3Logo from './d3-logo.svg';
@@ -38,6 +39,11 @@ class App extends Component {
             exact
             path="/multi-series-line-chart"
             component={MultiSeriesLineChart}
+          />
+          <Route
+            exact
+            path="/multi-series-line-chart/animated"
+            component={AnimatedMultiSeriesLineChart}
           />
           <footer className="App-footer">
             &copy; 2018 <a href="https://github.com/row1">Rowan Youngson</a>.
