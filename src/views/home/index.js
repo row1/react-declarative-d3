@@ -19,7 +19,7 @@ export default () => (
       this online you can find the source code on{' '}
       <a href="https://github.com/row1/react-declarative-d3">Github</a>.
     </p>
-    <h3>Examples:</h3>
+    <h3>Standard Examples:</h3>
     <ul>
       <li>
         <Link to="/bar-chart">Bar Chart</Link>
@@ -29,6 +29,18 @@ export default () => (
       </li>
       <li>
         <Link to="/multi-series-line-chart">Multi-Series Line Chart</Link>
+      </li>
+    </ul>
+
+    <h3>Animated Examples:</h3>
+    <ul>
+      <li>
+        <Link to="/bar-chart/animated">Bar Chart</Link>
+      </li>
+      <li>
+        <Link to="/multi-series-line-chart/animated">
+          Multi-Series Line Chart
+        </Link>
       </li>
     </ul>
   </div>

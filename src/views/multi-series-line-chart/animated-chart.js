@@ -7,6 +7,9 @@ import { line as d3Line, curveBasis } from 'd3-shape';
 import { min, max, extent } from 'd3-array';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { select } from 'd3-selection';
+import { easeLinear } from 'd3-ease';
+
+import makeAnimated from 'components/makeAnimated';
 
 // Same as data.tsv
 import dataTsv from './data';
@@ -57,7 +60,7 @@ y.domain([
 
 z.domain(cities.map(c => c.id));
 
-export default () => (
+const MultiSeriesLineChart = ({ data }) => (
   <svg width={svgWidth} height={svgHeight}>
     <g transform={`translate(${margin.left}, ${margin.top})`}>
       <g
@@ -70,8 +73,9 @@ export default () => (
           Temperature, ºF
         </text>
       </g>
-      {cities.map(city => {
-        const [lastD] = city.values.slice(-1);
+      {data.map((city, i) => {
+        // lastD needs to come from the last item in the full data and not the last in the current animation frame
+        const [lastD] = cities[i].values.slice(-1);
         return (
           <g className="city" key={city.id}>
             <path
@@ -93,3 +97,20 @@ export default () => (
     </g>
   </svg>
 );
+
+const easeData = (data, t) => {
+  // Performing a basic left-right linear paint of the graph,
+  // so use easeLinear to calculate how many items should be in the array rather than modify the actual values in the array
+  return data.map(x => ({
+    id: x.id,
+    values: x.values.slice(0, Math.floor(x.values.length * easeLinear(t))),
+  }));
+};
+
+export default makeAnimated(MultiSeriesLineChart, {
+  easeData,
+  duration: 500,
+  delay: 500,
+  interval: 10,
+  data: cities,
+});
