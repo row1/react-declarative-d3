@@ -6,7 +6,7 @@ import { axisBottom, axisLeft } from 'd3-axis';
 import { select } from 'd3-selection';
 import { easeCubicInOut } from 'd3-ease';
 
-import animateWithEase from 'hoc/animateWithEase';
+import { animateWithEase } from 'drrr';
 
 import dataTsv from './data';
 
