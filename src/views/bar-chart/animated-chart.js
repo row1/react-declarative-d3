@@ -42,6 +42,8 @@ export default class AnimatedBar extends React.Component {
       data: this.easeData(t),
       // The timestamp of the first animation frame
       animationStartTime: null,
+      // The timestamp of the last frame -- used to only update per interval
+      animationLastFrameTime: null,
     };
   }
 
@@ -50,22 +52,30 @@ export default class AnimatedBar extends React.Component {
   animation = {
     duration: 500,
     delay: 500,
+    interval: 10,
   };
 
   animationStep = timestamp => {
     const { animation } = this;
-    let { animationStartTime } = this.state;
+    let { animationStartTime, animationLastFrameTime } = this.state;
 
-    if (!animationStartTime) animationStartTime = timestamp;
+    if (!animationStartTime) {
+      animationStartTime = timestamp;
+      // Subtract the interval on the first frame so that easeData() will get called below
+      animationLastFrameTime = timestamp - animation.interval;
+    }
 
     const progress = timestamp - animationStartTime;
     const t = progress / animation.duration;
-
     if (progress < animation.duration) {
+      // Calling easeData() on each frame can be expensive, so only do it per interval
+      const shouldEase =
+        timestamp - animationLastFrameTime >= animation.interval;
       this.setState({
         t,
-        data: this.easeData(t),
+        data: shouldEase ? this.easeData(t) : this.state.data,
         animationStartTime,
+        animationLastFrameTime: timestamp,
       });
       window.requestAnimationFrame(this.animationStep);
     } else {
