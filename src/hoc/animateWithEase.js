@@ -7,9 +7,10 @@ const animationTypes = {
   data: PropTypes.any.isRequired,
   delay: PropTypes.number,
   interval: PropTypes.number.isRequired,
+  dataPropName: PropTypes.string,
 };
 
-export default function makeAnimated(WrappedComponent, animationConfig) {
+export default function animateWithEase(WrappedComponent, animationConfig) {
   PropTypes.checkPropTypes(
     animationTypes,
     animationConfig,
@@ -18,6 +19,10 @@ export default function makeAnimated(WrappedComponent, animationConfig) {
   );
 
   const { data, easeData, interval, duration, delay } = animationConfig;
+
+  if (!animationConfig.dataPropName) {
+    animationConfig.dataPropName = 'data';
+  }
 
   return class Animated extends React.Component {
     constructor() {
@@ -77,9 +82,11 @@ export default function makeAnimated(WrappedComponent, animationConfig) {
     }
 
     render() {
-      return (
-        <WrappedComponent data={this.state.intermediateData} {...this.props} />
-      );
+      const props = {
+        [animationConfig.dataPropName]: this.state.intermediateData,
+        ...this.props,
+      };
+      return <WrappedComponent {...props} />;
     }
   };
 }

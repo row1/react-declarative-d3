@@ -9,7 +9,7 @@ import { axisBottom, axisLeft } from 'd3-axis';
 import { select } from 'd3-selection';
 import { easeLinear } from 'd3-ease';
 
-import makeAnimated from 'components/make-animated';
+import animateWithEase from 'hoc/animateWithEase';
 
 // Same as data.tsv
 import dataTsv from './data';
@@ -107,7 +107,7 @@ const easeData = (data, t) => {
   }));
 };
 
-export default makeAnimated(MultiSeriesLineChart, {
+export default animateWithEase(MultiSeriesLineChart, {
   easeData,
   duration: 500,
   delay: 500,

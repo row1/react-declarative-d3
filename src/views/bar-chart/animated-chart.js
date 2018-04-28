@@ -6,7 +6,7 @@ import { axisBottom, axisLeft } from 'd3-axis';
 import { select } from 'd3-selection';
 import { easeCubicInOut } from 'd3-ease';
 
-import makeAnimated from 'components/make-animated';
+import animateWithEase from 'hoc/animateWithEase';
 
 import dataTsv from './data';
 
@@ -68,7 +68,7 @@ const easeData = (data, t) => {
   }));
 };
 
-export default makeAnimated(Bar, {
+export default animateWithEase(Bar, {
   easeData,
   duration: 500,
   delay: 500,
